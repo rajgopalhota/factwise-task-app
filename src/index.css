@@ -1,13 +1,210 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  min-height: 100vh;
+  max-width: 100vw;
+  font-family: "Poppins", sans-serif;
+  padding: 22px;
+  background-color: #e5e5f7;
+  opacity: 0.8;
+  background-image: radial-gradient(#444cf7 0.5px, #e5e5f7 0.5px);
+  background-size: 10px 10px;
+  /* background-image: linear-gradient(45deg, rgba(240, 248, 255, 0.4), rgba(173, 216, 230, 0.4)); */
+}
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  max-width: 100vw;
+  padding: 22px;
+}
+.searchBox {
+  width: 79%;
+  border-radius: 12px;
+  font-size: 18px;
+  outline: none;
+  border: none;
+  text-align: center;
+  padding: 12px;
+  box-shadow: 0 10px 10px rgba(0, 73, 124, 0.2);
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+  border: 1px solid black;
+}
+.searchBox::placeholder {
+  opacity: 0.7;
+  transform: scale(1.5);
+}
+.searchBox:focus-within {
+  outline: none;
+}
+.userPic {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.userPic img {
+  border-radius: 50px;
+  box-shadow: 0 5px 5px rgba(0, 0, 70, 0.4);
+  filter: saturate(1.3);
+  transition: all ease-in-out 0.3s;
+}
+.singleItem:hover .userPic img {
+  transform: scale(1.1);
+}
+.celebList {
+  list-style: none;
+  width: 80%;
+}
+.userContent {
+  box-shadow: 0 10px 10px rgba(0, 73, 124, 0.2);
+  margin-bottom: 15px;
+  background-color: white;
+  padding: 12px 18px;
+  border: 1px solid black;
+  border-radius: 12px;
+}
+.singleItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dropdownIco {
+  cursor: pointer;
+  scale: 2;
+}
+.expandedContent {
+  border-top: 2px solid rgba(0, 0, 0, 0.2);
+  margin-top: 16px;
+}
+.expandedContent h4 {
+  color: rgb(100, 100, 100);
+  margin-bottom: 5px;
+}
+.biodata {
+  display: flex;
+  justify-content: space-around;
+}
+.biodata p {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+  color: rgb(100, 100, 100);
+  text-transform: capitalize;
+}
+.biodata span {
+  color: black;
+}
+.footer {
+  display: flex;
+  justify-content: end;
+  gap: 33px;
+  margin: 10px;
+}
+.footer svg {
+  transform: scale(1.8);
+}
+.deleteIcon {
+  color: red;
+  cursor: pointer;
+}
+.editIcon {
+  color: rgb(0, 136, 255);
+  cursor: pointer;
+}
+.subIcon {
+  color: rgb(0, 177, 0);
+  cursor: pointer;
+}
+.DialogBox {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(4px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all ease-in 0.3s;
+}
+.container {
+  width: 400px;
+  height: 180px;
+  background-color: white;
+  font-size: 20px;
+  border-radius: 22px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border: 1px solid black;
+}
+.container p {
+  display: flex;
+  justify-content: space-around;
+}
+.container span {
+  transform: scale(1.5);
+  font-weight: 900;
+  cursor: pointer;
+}
+.container .buttons {
+  display: flex;
+  justify-content: end;
+  gap: 20px;
+  margin-right: 20px;
+}
+.container button {
+  cursor: pointer;
+  font-weight: 700;
+  padding: 12px 30px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+.container .del {
+  background-color: rgb(255, 64, 0);
+  color: white;
+}
+
+.editingWay input,
+select {
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 4px 10px;
+  border: 2px solid rgba(0, 0, 0, 0.7);
+}
+.editingWay textarea {
+  font-size: 16px;
+  padding: 4px 10px;
+  border-radius: 8px;
+  width: 98% !important;
+  border: 2px solid rgba(0, 0, 0, 0.7);
+  resize: none;
+  height: 100px !important;
+}
+author{
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+  gap: 20px;
+  font-size: 13px;
+  background-color: rgba(46, 139, 86, 0.5);
+  padding: 8px;
+  border-radius: 20px;
+  border: 1px solid black;
+  bottom: 15px;
+  right: 15px;
+}
+author img{
+  width: 40px;
 }
